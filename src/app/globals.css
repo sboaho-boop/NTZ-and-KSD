@@ -1,0 +1,184 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-charcoal: #1a1a1a;
+  --color-charcoal-light: #2d2d2d;
+  --color-charcoal-dark: #0f0f0f;
+  --color-warm-white: #f8f6f3;
+  --color-warm-cream: #f0ece6;
+  --color-warm-gray: #e8e4de;
+  --color-stone: #8a8178;
+  --color-stone-light: #b5ada3;
+  --color-stone-dark: #5c554d;
+  --color-gold: #b8960c;
+  --color-gold-light: #d4b14a;
+  --color-gold-dark: #8a7009;
+  --color-earth: #6b4e2f;
+  --color-earth-light: #8b6e4f;
+  --color-earth-dark: #4a3520;
+  --color-forest: #2d4a3e;
+  --color-forest-light: #3d6a55;
+  --color-mineral: #7a8b8a;
+  --color-mineral-light: #a0b0af;
+  --color-border: #e0dcd6;
+  --color-border-dark: #c8c2b8;
+
+  --font-serif: "Cormorant Garamond", "Georgia", serif;
+  --font-sans: "Inter", "system-ui", sans-serif;
+}
+
+:root {
+  --background: #f8f6f3;
+  --foreground: #1a1a1a;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: white;
+}
+
+/* Editorial heading styles */
+.heading-editorial {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.heading-display {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+}
+
+/* Subtle line separator */
+.line-separator {
+  width: 60px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+/* Thin border utility */
+.border-thin {
+  border-width: 1px;
+  border-color: var(--color-border);
+}
+
+/* Smooth image hover */
+.img-hover {
+  overflow: hidden;
+}
+
+.img-hover img {
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.img-hover:hover img {
+  transform: scale(1.03);
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Scroll reveal */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-warm-white);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-stone);
+}
+
+/* Admin styles */
+.admin-card {
+  background: white;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 24px;
+}
+
+.admin-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.admin-input:focus {
+  border-color: var(--color-gold);
+}
+
+.admin-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.admin-btn-primary {
+  background: var(--color-charcoal);
+  color: white;
+  border: none;
+}
+
+.admin-btn-primary:hover {
+  background: var(--color-charcoal-light);
+}

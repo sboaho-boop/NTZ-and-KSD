@@ -1,0 +1,135 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Company {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  brandName   String?
+  description String
+  logo        String?
+  leadership  String?
+  activities  String?
+  contactInfo String?
+  seoTitle    String?
+  seoDesc     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  projects    Project[]
+  activities_ Activity[]
+  news        News[]
+  leaders     Leadership[]
+}
+
+model Activity {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String
+  image       String?
+  icon        String?
+  order       Int      @default(0)
+  status      String   @default("active")
+  companyId   String?
+  company     Company? @relation(fields: [companyId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Project {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  location    String
+  sector      String
+  status      String   @default("Planning")
+  description String
+  startDate   String?
+  image       String?
+  gallery     String? // JSON array of image URLs
+  documents   String? // JSON array of document URLs
+  websiteUrl  String?
+  featured    Boolean  @default(false)
+  companyId   String?
+  company     Company? @relation(fields: [companyId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model News {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  category    String
+  author      String   @default("NTZ SPRL & KSD SARL")
+  date        DateTime @default(now())
+  image       String?
+  content     String
+  summary     String
+  seoTitle    String?
+  seoDesc     String?
+  published   Boolean  @default(false)
+  companyId   String?
+  company     Company? @relation(fields: [companyId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Leadership {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  position    String
+  biography   String
+  photo       String?
+  socialLinks String? // JSON
+  companyId   String?
+  company     Company? @relation(fields: [companyId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Message {
+  id        String   @id @default(cuid())
+  name      String
+  company   String?
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  status    String   @default("unread")
+  createdAt DateTime @default(now())
+}
+
+model Media {
+  id        String   @id @default(cuid())
+  name      String
+  filename  String
+  url       String
+  type      String
+  size      Int
+  folder    String?  @default("general")
+  createdAt DateTime @default(now())
+}
+
+model Settings {
+  id        String   @id @default(cuid())
+  key       String   @unique
+  value     String
+  updatedAt DateTime @updatedAt
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("admin")
+  createdAt DateTime @default(now())
+}
