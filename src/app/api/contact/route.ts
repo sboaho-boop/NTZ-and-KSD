@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import { Resend } from "resend";
+
+const RECIPIENT_EMAIL = process.env.CONTACT_RECIPIENT || "fnyimilongo@yahoo.fr";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,16 +14,31 @@ export async function POST(req: NextRequest) {
 
     const sanitize = (s: string) => s?.trim().slice(0, 500) || "";
 
-    await db.message.create({
-      data: {
-        name: sanitize(name),
-        company: sanitize(company),
-        email: sanitize(email),
-        phone: sanitize(phone),
-        subject: sanitize(subject),
-        message: sanitize(message),
-      },
+    if (!process.env.RESEND_API_KEY) {
+      console.error("RESEND_API_KEY is not configured");
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const { error } = await resend.emails.send({
+      from: `NTZ & KSD Website <onboarding@resend.dev>`,
+      to: [RECIPIENT_EMAIL],
+      replyTo: sanitize(email),
+      subject: `Website inquiry: ${sanitize(subject)}`,
+      text: [
+        `Name: ${sanitize(name)}`,
+        `Company: ${sanitize(company) || "—"}`,
+        `Email: ${sanitize(email)}`,
+        `Phone: ${sanitize(phone) || "—"}`,
+        "",
+        sanitize(message),
+      ].join("\n"),
     });
+
+    if (error) {
+      console.error("Resend error:", error);
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
+    }
 
     return NextResponse.json({ success: true }, { status: 201 });
   } catch {
