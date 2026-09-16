@@ -44,6 +44,18 @@ const FALLBACK_ARTICLES: Article[] = [
       "The Mweka Agri-Project combines commercial crop farming with job creation, smallholder training and community development in the Kasai province.",
   },
   {
+    id: "6",
+    title: "Terrakili Partners with INERA and CAPSA to Train Smallholder Farmers in Kasai",
+    slug: "terrakili-smallholder-farmer-training-kasai",
+    category: "Community",
+    date: new Date(),
+    image: "/images/mweka-field.jpg",
+    content:
+      "The Mweka Agri-Project is building on a foundation of local agricultural knowledge to develop modern farming capacity in the Kasai province.\n\nTerrakili works with INERA — the National Institute for Agronomic Study & Research — which has run a research and extension station at Bena-Longo, just 14–20 km from the project's focus area near Ndambo, since the colonial era. Alongside INERA, CAPSA produces and distributes improved seeds and coaches farmers in better cultivation techniques.\n\nThe model is cooperative: experienced commercial farmers transfer modern methods and soil management skills to local producers, while surrounding technical schools (ITV for veterinary sciences and ITA for agricultural sciences) provide a growing skills base the project intends to support.\n\nThe project's goals include creating more than 150 permanent jobs and 500+ casual roles, guaranteeing smallholder farmers a reliable market for their produce, and contributing to community infrastructure such as a school, health facilities and access to water and electricity.",
+    summary:
+      "The Mweka Agri-Project partners with INERA and CAPSA to train smallholder farmers and build modern agricultural capacity in the Kasai province.",
+  },
+  {
     id: "3",
     title: "Establishment of NTZ SPRL and KSD SARL",
     slug: "establishment-of-ntz-sprl-and-ksd-sarl",

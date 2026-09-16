@@ -28,15 +28,19 @@ export default async function NewsPage() {
         category: "Industry", date: new Date().toISOString(), summary: "The Mweka Agri-Project combines commercial crop farming with job creation, smallholder training and community development in the Kasai province.",
       },
       {
-        id: "3", title: "Establishment of NTZ SPRL and KSD SARL", slug: "establishment-of-ntz-sprl-and-ksd-sarl",
+        id: "3", title: "Terrakili Partners with INERA and CAPSA to Train Smallholder Farmers in Kasai", slug: "terrakili-smallholder-farmer-training-kasai",
+        category: "Community", date: new Date().toISOString(), summary: "The Mweka Agri-Project partners with INERA and CAPSA to train smallholder farmers and build modern agricultural capacity in the Kasai province.",
+      },
+      {
+        id: "4", title: "Establishment of NTZ SPRL and KSD SARL", slug: "establishment-of-ntz-sprl-and-ksd-sarl",
         category: "Company News", date: new Date().toISOString(), summary: "NTZ SPRL and KSD SARL (Kasai Sud Diamant) have been established in Kinshasa, DRC, under the leadership of Franck Nyimilongo Pieme.",
       },
       {
-        id: "4", title: "KSD SARL — Kasai Sud Diamant Launch", slug: "ksd-sarl-kasai-sud-diamant-launch",
+        id: "5", title: "KSD SARL — Kasai Sud Diamant Launch", slug: "ksd-sarl-kasai-sud-diamant-launch",
         category: "Announcements", date: new Date().toISOString(), summary: "KSD SARL launches operations under the Kasai Sud Diamant brand, focusing on natural resources in the DRC.",
       },
       {
-        id: "5", title: "Building Business in the Democratic Republic of Congo", slug: "building-business-in-drc",
+        id: "6", title: "Building Business in the Democratic Republic of Congo", slug: "building-business-in-drc",
         category: "Industry", date: new Date().toISOString(), summary: "Exploring the opportunities and challenges of building sustainable business in the DRC.",
       },
     ];

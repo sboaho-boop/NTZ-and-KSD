@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About Us",
-  description: "Learn about NTZ SPRL and KSD SARL — Congolese companies building sustainable businesses in the Democratic Republic of Congo.",
+  description: "Learn about NTZ SPRL, KSD SARL and Terrakili SARL — Congolese companies building sustainable businesses and modern agriculture in the Democratic Republic of Congo.",
 };
 
 const values = [
@@ -57,6 +57,9 @@ export default async function AboutPage() {
                 </p>
                 <p>
                   Founded under the leadership of Franck Nyimilongo Pieme, the companies were established with a clear vision: to identify opportunities in one of Africa&apos;s most resource-rich nations and build sustainable business operations that create lasting value.
+                </p>
+                <p>
+                  The group&apos;s third company, Terrakili SARL, is dedicated to agriculture and agribusiness. Through the Mweka Agri-Project, it is developing a commercial crop farming operation on a 48,000-hectare concession in the Kasai province — building modern farming capacity, creating jobs and strengthening food security in the DRC.
                 </p>
                 <p>
                   From our base in Kinshasa-Gombe, we combine deep local knowledge with an international approach to business, working with partners and stakeholders across the Democratic Republic of Congo and beyond.

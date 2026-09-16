@@ -32,11 +32,11 @@ export default async function NewsSection() {
       },
       {
         id: "3",
-        title: "Establishment of NTZ SPRL and KSD SARL",
-        slug: "establishment-of-ntz-sprl-and-ksd-sarl",
-        category: "Company News",
+        title: "Terrakili Partners with INERA and CAPSA to Train Smallholder Farmers in Kasai",
+        slug: "terrakili-smallholder-farmer-training-kasai",
+        category: "Community",
         date: new Date().toISOString(),
-        summary: "NTZ SPRL and KSD SARL (Kasai Sud Diamant) have been established in Kinshasa, DRC, under the leadership of Franck Nyimilongo Pieme.",
+        summary: "The Mweka Agri-Project partners with INERA and CAPSA to train smallholder farmers and build modern agricultural capacity in the Kasai province.",
       },
     ];
   }

@@ -29,6 +29,7 @@ const NEWS_IMAGES: Record<string, string> = {
   "building-business-in-drc": "/images/team-working.jpg",
   "terrakili-agricultural-concession-kasai": "/images/mweka-field.jpg",
   "mweka-agri-project-commercial-farming": "/images/mweka-site-2.jpg",
+  "terrakili-smallholder-farmer-training-kasai": "/images/mweka-field.jpg",
 };
 
 export function projectImage(project?: ProjectLike | null): string {
