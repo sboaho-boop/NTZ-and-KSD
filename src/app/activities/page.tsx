@@ -13,6 +13,7 @@ const fallbackActivities = [
   { id: "2", title: "Trading & Commerce", description: "Our trading operations connect Congolese products and resources with regional and international markets, building reliable supply chains and commercial relationships.", slug: "trading-commerce" },
   { id: "3", title: "Investment & Development", description: "We pursue investment opportunities that contribute to economic development in the DRC, focusing on sustainable projects with long-term commercial viability.", slug: "investment-development" },
   { id: "4", title: "Strategic Partnerships", description: "We develop partnerships with local and international businesses, institutions and stakeholders to create mutually beneficial commercial opportunities.", slug: "strategic-partnerships" },
+  { id: "5", title: "Agriculture & Agribusiness", description: "Through Terrakili SARL, we are developing the Mweka Agri-Project — a commercial crop farming operation in the Kasai province growing maize, cassava, soybeans, beans, banana and cereals. Using modern machinery, drones, GIS and IoT, it combines sustainable production with job creation and training for local farmers.", slug: "agriculture-agribusiness" },
 ];
 
 export default async function ActivitiesPage() {

@@ -7,6 +7,80 @@ import { formatDate } from "@/lib/utils";
 
 type Props = { params: Promise<{ slug: string }> };
 
+type Article = {
+  id: string;
+  title: string;
+  slug: string;
+  category: string;
+  date: Date;
+  image: string | null;
+  content: string;
+  summary: string;
+};
+
+const FALLBACK_ARTICLES: Article[] = [
+  {
+    id: "1",
+    title: "Terrakili SARL Gains 48,000-Hectare Agricultural Concession in Kasai",
+    slug: "terrakili-agricultural-concession-kasai",
+    category: "Announcements",
+    date: new Date(),
+    image: "/images/mweka-field.jpg",
+    content:
+      "Terrakili SARL has secured an agricultural concession of about 48,000 hectares in the Mweka territory of the Kasai province, Democratic Republic of Congo.\n\nThe land was acquired through a thorough process involving traditional authorities, local departments of the Ministry of Land Affairs and the Ministry of Agriculture, and the provincial and national governments. Decrees were signed by the Governor of the Kasai province for 15,000 hectares and by the President of the Republic for 33,000 hectares.\n\nThe concession comprises thirteen blocks across eight sites — including Ndengamongo II, Itunga Mpende, Ndambo, Itapanya Camp, Inema Makolo, Malongo III, Tena Mashobi and Kin-A-Mbuom — surveyed and demarcated with the Mweka cadastre in 2020. The state leases the concession to Terrakili for 25 years, renewable without limitation.\n\nFarming is planned to begin on the focus areas of Ndambo Bloc 1 and Bloc 2, which together cover about 1,310 hectares.",
+    summary:
+      "Terrakili SARL holds a 48,000-hectare agricultural concession in the Kasai province, awarded by provincial and national decrees and leased for 25 years.",
+  },
+  {
+    id: "2",
+    title: "The Mweka Agri-Project: Commercial Farming for Food Security",
+    slug: "mweka-agri-project-commercial-farming",
+    category: "Industry",
+    date: new Date(),
+    image: "/images/mweka-site-2.jpg",
+    content:
+      "The Mweka Agri-Project is a commercial crop farming initiative developed by Terrakili SARL in the Kasai province of the Democratic Republic of Congo.\n\nThe first phase covers approximately 1,310 hectares near the village of Ndambo, growing maize, cassava, soybeans, beans, banana and cereals. Crops are cultivated with modern machinery and technology — including drones for crop surveillance and spraying, and GIS and IoT for precision farm management.\n\nExperienced South African commercial farmers will manage operations and provide training and upskilling for local personnel, as part of the project's wider goals of creating over 500 permanent jobs, supporting smallholder farmers with training and a market for their produce, and building essential community facilities.\n\nThe project sits about 25 km from the town of Mweka, on the Ilebo–Lubumbashi railway line that links the operation to major markets in Kinshasa and Lubumbashi.",
+    summary:
+      "The Mweka Agri-Project combines commercial crop farming with job creation, smallholder training and community development in the Kasai province.",
+  },
+  {
+    id: "3",
+    title: "Establishment of NTZ SPRL and KSD SARL",
+    slug: "establishment-of-ntz-sprl-and-ksd-sarl",
+    category: "Company News",
+    date: new Date(),
+    image: "/images/office.jpg",
+    content:
+      "NTZ SPRL and KSD SARL (Kasai Sud Diamant) have been established as Congolese companies operating from Kinshasa, Democratic Republic of Congo.\n\nUnder the leadership of Franck Nyimilongo Pieme, the companies are positioned to pursue strategic business opportunities in the DRC and develop lasting commercial relationships with partners and stakeholders.\n\nBoth companies bring a commitment to professionalism, integrity and long-term value creation to the Congolese business landscape.",
+    summary:
+      "NTZ SPRL and KSD SARL (Kasai Sud Diamant) have been established in Kinshasa, DRC, under the leadership of Franck Nyimilongo Pieme.",
+  },
+  {
+    id: "4",
+    title: "KSD SARL — Kasai Sud Diamant Launch",
+    slug: "ksd-sarl-kasai-sud-diamant-launch",
+    category: "Announcements",
+    date: new Date(),
+    image: "/images/diamond.jpg",
+    content:
+      "KSD SARL has officially launched its operations under the Kasai Sud Diamant brand identity.\n\nThe company will focus on opportunities in the natural resources sector, leveraging the DRC's significant mineral wealth and the strategic location of the Kasai region.\n\nKSD SARL aims to build partnerships that create value for all stakeholders while contributing to economic development in the region.",
+    summary:
+      "KSD SARL launches operations under the Kasai Sud Diamant brand, focusing on natural resources in the DRC.",
+  },
+  {
+    id: "5",
+    title: "Building Business in the Democratic Republic of Congo",
+    slug: "building-business-in-drc",
+    category: "Industry",
+    date: new Date(),
+    image: "/images/team-working.jpg",
+    content:
+      "The Democratic Republic of Congo presents significant opportunities for business development across multiple sectors.\n\nWith abundant natural resources, a growing economy and strategic positioning in Central Africa, the DRC offers a compelling environment for companies focused on long-term value creation.\n\nNTZ SPRL and KSD SARL are committed to contributing to this growth while maintaining the highest standards of business practice.",
+    summary:
+      "Exploring the opportunities and challenges of building sustainable business in the DRC.",
+  },
+];
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
@@ -20,9 +94,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function NewsArticlePage({ params }: Props) {
   const { slug } = await params;
-  let article = null;
+  let article = FALLBACK_ARTICLES.find((a) => a.slug === slug) ?? null;
   try {
-    article = await db.news.findUnique({ where: { slug } });
+    const found = await db.news.findUnique({ where: { slug } });
+    if (found) article = found;
   } catch {}
 
   if (!article) notFound();

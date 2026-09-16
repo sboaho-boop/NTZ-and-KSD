@@ -7,6 +7,57 @@ import { projectImage } from "@/lib/images";
 
 type Props = { params: Promise<{ slug: string }> };
 
+type Project = {
+  id: string;
+  name: string;
+  slug: string;
+  location: string;
+  sector: string;
+  status: string;
+  description: string;
+  image: string | null;
+  startDate: string | null;
+};
+
+const FALLBACK_PROJECTS: Project[] = [
+  {
+    id: "1",
+    name: "Mweka Agri-Project",
+    slug: "mweka-agri-project",
+    location: "Mweka Territory, Kasai Province, DRC",
+    sector: "Agriculture & Agribusiness",
+    status: "Planning",
+    description:
+      "A commercial crop farming project developed by Terrakili SARL on an agricultural concession of about 48,000 hectares in the Kasai province. The first phase covers approximately 1,310 hectares near Ndambo, growing maize, cassava, soybeans, beans, banana and cereals.\n\nThe concession — about 25 km from the town of Mweka and served by the Ilebo–Lubumbashi railway — was awarded to Terrakili by decrees of the Kasai Provincial Governor and the President of the Republic, and is leased for 25 years, renewable. The project uses modern machinery, drones, GIS and IoT, and is managed in partnership with experienced South African commercial farmers as part of a wider commitment to job creation, smallholder farmer training and food security.",
+    image: "/images/mweka-site-1.jpg",
+    startDate: null,
+  },
+  {
+    id: "2",
+    name: "Mineral Exploration Initiative",
+    slug: "mineral-exploration-initiative",
+    location: "Kasai Region, DRC",
+    sector: "Natural Resources",
+    status: "Planning",
+    description:
+      "A preliminary exploration initiative targeting mineral-rich areas in the Kasai region. This project is in its early planning stages and focuses on identifying viable resource extraction opportunities.",
+    image: "/images/industry.jpg",
+    startDate: null,
+  },
+  {
+    id: "3",
+    name: "Kinshasa Commercial Hub",
+    slug: "kinshasa-commercial-hub",
+    location: "Kinshasa-Gombe, DRC",
+    sector: "Investment & Development",
+    status: "Planning",
+    description:
+      "A commercial development project in Kinshasa-Gombe aimed at creating modern business infrastructure. Currently in the feasibility and planning stage.",
+    image: "/images/cranes.jpg",
+    startDate: null,
+  },
+];
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   try {
@@ -20,9 +71,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
-  let project = null;
+  let project = FALLBACK_PROJECTS.find((p) => p.slug === slug) ?? null;
   try {
-    project = await db.project.findUnique({ where: { slug } });
+    const found = await db.project.findUnique({ where: { slug } });
+    if (found) project = found;
   } catch {}
 
   if (!project) notFound();

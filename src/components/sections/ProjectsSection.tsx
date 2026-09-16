@@ -14,6 +14,15 @@ export default async function ProjectsSection() {
     projects = [
       {
         id: "1",
+        name: "Mweka Agri-Project",
+        slug: "mweka-agri-project",
+        location: "Mweka Territory, Kasai Province, DRC",
+        sector: "Agriculture & Agribusiness",
+        status: "Planning",
+        description: "A commercial crop farming project by Terrakili SARL on about 48,000 hectares in the Kasai province — an initial 1,310-hectare phase growing maize, cassava, soybeans, beans, banana and cereals, with job creation, smallholder training and community development at its core.",
+      },
+      {
+        id: "2",
         name: "Mineral Exploration Initiative",
         slug: "mineral-exploration-initiative",
         location: "Kasai Region, DRC",
@@ -22,7 +31,7 @@ export default async function ProjectsSection() {
         description: "A preliminary exploration initiative targeting mineral-rich areas in the Kasai region.",
       },
       {
-        id: "2",
+        id: "3",
         name: "Kinshasa Commercial Hub",
         slug: "kinshasa-commercial-hub",
         location: "Kinshasa-Gombe, DRC",

@@ -55,6 +55,24 @@ async function main() {
     },
   });
 
+  const terrakili = await prisma.company.upsert({
+    where: { slug: "terrakili-sarl" },
+    update: {},
+    create: {
+      name: "Terrakili SARL",
+      slug: "terrakili-sarl",
+      description:
+        "A Congolese agricultural development company incorporated in the Democratic Republic of Congo. Terrakili is the project owner and sponsor of the Mweka Agri-Project and holds the leasehold title to an agricultural concession of about 48,000 hectares in the Kasai province, awarded by decrees of the Kasai Provincial Governor and the President of the Republic.",
+      leadership: "Serge Ngandu & Franck Nyimilongo Pieme — Founders",
+      contactInfo: JSON.stringify({
+        address: "Kinshasa-Gombe",
+        city: "Kinshasa",
+        country: "Democratic Republic of Congo",
+        email: "fnyimilongo@yahoo.fr",
+      }),
+    },
+  });
+
   // Create activities
   const activities = [
     {
@@ -93,6 +111,15 @@ async function main() {
       order: 4,
       companyId: null,
     },
+    {
+      title: "Agriculture & Agribusiness",
+      slug: "agriculture-agribusiness",
+      description:
+        "Through Terrakili SARL, we are developing the Mweka Agri-Project — a commercial crop farming operation in the Kasai province growing maize, cassava, soybeans, beans, banana and cereals. Using modern machinery, drones, GIS and IoT, it combines sustainable production with job creation and training for local farmers.",
+      image: "/images/mweka-site-1.jpg",
+      order: 5,
+      companyId: terrakili.id,
+    },
   ];
 
   for (const activity of activities) {
@@ -106,13 +133,27 @@ async function main() {
   // Create leadership
   await prisma.leadership.upsert({
     where: { slug: "frank-nyimilongo-pieme" },
-    update: {},
+    update: { photo: "/images/leadership-franck.jpg" },
     create: {
       name: "Franck Nyimilongo Pieme",
       slug: "frank-nyimilongo-pieme",
-      position: "Associé Gérant — NTZ SPRL\nDirecteur Général — KSD SARL",
+      position: "Associé Gérant — NTZ SPRL\nDirecteur Général — KSD SARL\nCo-Founder — Terrakili SARL",
       biography:
-        "Franck Nyimilongo Pieme is a business executive based in the Democratic Republic of Congo, providing leadership across NTZ SPRL and KSD SARL.\n\nThrough his leadership, the companies pursue commercial opportunities while developing relationships with clients, partners and stakeholders.\n\nHis approach combines deep understanding of the Congolese business environment with strategic thinking and a commitment to creating lasting value.",
+        "Franck Nyimilongo Pieme is a business executive based in the Democratic Republic of Congo, providing leadership across NTZ SPRL and KSD SARL.\n\nHe is also a founder of Terrakili SARL, the company behind the Mweka Agri-Project, a commercial crop farming initiative in the Kasai province. Together with his co-founders, he brings over 50 years of combined experience in agriculture, agri-business and business management across Southern Africa, and is committed to strengthening food security in the DRC.\n\nHis approach combines a deep understanding of the Congolese business environment with strategic thinking and a commitment to creating lasting value.",
+      photo: "/images/leadership-franck.jpg",
+    },
+  });
+
+  await prisma.leadership.upsert({
+    where: { slug: "serge-ngandu" },
+    update: {},
+    create: {
+      name: "Serge Ngandu",
+      slug: "serge-ngandu",
+      position: "Co-Founder — Terrakili SARL",
+      biography:
+        "Serge Ngandu is a Congolese businessman and one of the founders and shareholders of Terrakili SARL, the project owner and sponsor of the Mweka Agri-Project.\n\nTogether with his co-founders, he brings over 50 years of combined experience in agriculture, agri-business and business management in Southern Africa. He is passionate about developing a crop farming operation that contributes to food security in the Democratic Republic of Congo.\n\nThe initiative has received the blessing of local authorities, who made land available to Terrakili for the commercial farming development in the Kasai province.",
+      photo: "/images/leadership-serge.jpg",
     },
   });
 
@@ -147,6 +188,28 @@ async function main() {
         "A commercial development project in Kinshasa-Gombe aimed at creating modern business infrastructure. Currently in the feasibility and planning stage.",
       image: "/images/cranes.jpg",
       companyId: ntz.id,
+      featured: true,
+    },
+  });
+
+  await prisma.project.upsert({
+    where: { slug: "mweka-agri-project" },
+    update: { image: "/images/mweka-site-1.jpg" },
+    create: {
+      name: "Mweka Agri-Project",
+      slug: "mweka-agri-project",
+      location: "Mweka Territory, Kasai Province, DRC",
+      sector: "Agriculture & Agribusiness",
+      status: "Planning",
+      description:
+        "A commercial crop farming project developed by Terrakili SARL on an agricultural concession of about 48,000 hectares in the Kasai province. The first phase covers approximately 1,310 hectares near Ndambo, growing maize, cassava, soybeans, beans, banana and cereals.\n\nThe concession — about 25 km from the town of Mweka and served by the Ilebo–Lubumbashi railway — was awarded to Terrakili by decrees of the Kasai Provincial Governor and the President of the Republic, and is leased for 25 years, renewable. The project uses modern machinery, drones, GIS and IoT, and is managed in partnership with experienced South African commercial farmers as part of a wider commitment to job creation, smallholder farmer training and food security.",
+      image: "/images/mweka-site-1.jpg",
+      gallery: JSON.stringify([
+        "/images/mweka-site-1.jpg",
+        "/images/mweka-site-2.jpg",
+        "/images/mweka-field.jpg",
+      ]),
+      companyId: terrakili.id,
       featured: true,
     },
   });
@@ -196,6 +259,38 @@ async function main() {
       summary:
         "Exploring the opportunities and challenges of building sustainable business in the DRC.",
       published: true,
+    },
+  });
+
+  await prisma.news.upsert({
+    where: { slug: "terrakili-agricultural-concession-kasai" },
+    update: { image: "/images/mweka-field.jpg" },
+    create: {
+      title: "Terrakili SARL Gains 48,000-Hectare Agricultural Concession in Kasai",
+      slug: "terrakili-agricultural-concession-kasai",
+      category: "Announcements",
+      content:
+        "Terrakili SARL has secured an agricultural concession of about 48,000 hectares in the Mweka territory of the Kasai province, Democratic Republic of Congo.\n\nThe land was acquired through a thorough process involving traditional authorities, local departments of the Ministry of Land Affairs and the Ministry of Agriculture, and the provincial and national governments. Decrees were signed by the Governor of the Kasai province for 15,000 hectares and by the President of the Republic for 33,000 hectares.\n\nThe concession comprises thirteen blocks across eight sites — including Ndengamongo II, Itunga Mpende, Ndambo, Itapanya Camp, Inema Makolo, Malongo III, Tena Mashobi and Kin-A-Mbuom — surveyed and demarcated with the Mweka cadastre in 2020. The state leases the concession to Terrakili for 25 years, renewable without limitation.\n\nFarming is planned to begin on the focus areas of Ndambo Bloc 1 and Bloc 2, which together cover about 1,310 hectares.",
+      summary:
+        "Terrakili SARL holds a 48,000-hectare agricultural concession in the Kasai province, awarded by provincial and national decrees and leased for 25 years.",
+      published: true,
+      companyId: terrakili.id,
+    },
+  });
+
+  await prisma.news.upsert({
+    where: { slug: "mweka-agri-project-commercial-farming" },
+    update: { image: "/images/mweka-site-2.jpg" },
+    create: {
+      title: "The Mweka Agri-Project: Commercial Farming for Food Security",
+      slug: "mweka-agri-project-commercial-farming",
+      category: "Industry",
+      content:
+        "The Mweka Agri-Project is a commercial crop farming initiative developed by Terrakili SARL in the Kasai province of the Democratic Republic of Congo.\n\nThe first phase covers approximately 1,310 hectares near the village of Ndambo, growing maize, cassava, soybeans, beans, banana and cereals. Crops are cultivated with modern machinery and technology — including drones for crop surveillance and spraying, and GIS and IoT for precision farm management.\n\nExperienced South African commercial farmers will manage operations and provide training and upskilling for local personnel, as part of the project's wider goals of creating over 500 permanent jobs, supporting smallholder farmers with training and a market for their produce, and building essential community facilities.\n\nThe project sits about 25 km from the town of Mweka, on the Ilebo–Lubumbashi railway line that links the operation to major markets in Kinshasa and Lubumbashi.",
+      summary:
+        "The Mweka Agri-Project combines commercial crop farming with job creation, smallholder training and community development in the Kasai province.",
+      published: true,
+      companyId: terrakili.id,
     },
   });
 

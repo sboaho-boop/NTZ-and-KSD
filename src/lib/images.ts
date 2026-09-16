@@ -20,12 +20,15 @@ type ActivityLike = {
 const PROJECT_IMAGES: Record<string, string> = {
   "mineral-exploration-initiative": "/images/industry.jpg",
   "kinshasa-commercial-hub": "/images/cranes.jpg",
+  "mweka-agri-project": "/images/mweka-site-1.jpg",
 };
 
 const NEWS_IMAGES: Record<string, string> = {
   "establishment-of-ntz-sprl-and-ksd-sarl": "/images/office.jpg",
   "ksd-sarl-kasai-sud-diamant-launch": "/images/diamond.jpg",
   "building-business-in-drc": "/images/team-working.jpg",
+  "terrakili-agricultural-concession-kasai": "/images/mweka-field.jpg",
+  "mweka-agri-project-commercial-farming": "/images/mweka-site-2.jpg",
 };
 
 export function projectImage(project?: ProjectLike | null): string {
@@ -62,6 +65,9 @@ export function activityImage(activity?: ActivityLike | null): string {
   }
   if (slug.includes("invest") || title.includes("invest") || title.includes("development")) {
     return "/images/cranes.jpg";
+  }
+  if (slug.includes("agriculture") || slug.includes("agri") || title.includes("agriculture") || title.includes("agribusiness")) {
+    return "/images/mweka-site-1.jpg";
   }
   if (slug.includes("trading") || title.includes("trading") || title.includes("commerce")) {
     return "/images/business-strategy.jpg";

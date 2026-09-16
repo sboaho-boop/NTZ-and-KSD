@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Our Companies",
-  description: "Two companies. One commitment to building meaningful business opportunities in the Democratic Republic of Congo.",
+  description: "Three companies. One commitment to building meaningful business opportunities in the Democratic Republic of Congo.",
 };
 
 export default function CompaniesPage() {
@@ -16,7 +16,7 @@ export default function CompaniesPage() {
           <h1 className="heading-display text-5xl md:text-6xl lg:text-7xl text-warm-white mb-6">Our Companies</h1>
           <div className="line-separator mb-8" />
           <p className="text-xl text-warm-white/60 max-w-2xl">
-            Two companies. One commitment to building meaningful business opportunities in the Democratic Republic of Congo.
+            Three companies. One commitment to building meaningful business opportunities in the Democratic Republic of Congo.
           </p>
         </div>
       </section>
@@ -80,6 +80,36 @@ export default function CompaniesPage() {
               </div>
               <Link href="/companies/ksd-sarl" className="inline-flex items-center gap-2 px-8 py-3 bg-earth-dark text-warm-white text-[13px] font-semibold tracking-widest uppercase hover:bg-earth transition-colors duration-300">
                 Explore KSD →
+              </Link>
+            </div>
+
+            {/* TERRAKILI */}
+            <div className="group">
+              <div className="relative aspect-[16/10] overflow-hidden flex flex-col justify-end p-10 lg:p-14 mb-8 transition-transform duration-700 group-hover:scale-[1.01]">
+                <Image
+                  src="/images/mweka-site-1.jpg"
+                  alt="Terrakili SARL"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest-light/30 to-transparent" />
+                <div className="relative z-10">
+                  <p className="text-[11px] font-medium tracking-[0.25em] uppercase text-gold mb-3">Company 03</p>
+                  <h2 className="heading-display text-3xl lg:text-4xl text-warm-white mb-1">Terrakili SARL</h2>
+                  <p className="font-serif text-xl text-warm-white/60">Agriculture & Agribusiness</p>
+                </div>
+              </div>
+              <div className="space-y-4 mb-8">
+                <p className="text-stone-dark leading-relaxed">
+                  A Congolese agricultural development company and the project owner of the Mweka Agri-Project — a commercial crop farming operation on a 48,000-hectare concession in the Kasai province, founded by Serge Ngandu and Franck Nyimilongo Pieme.
+                </p>
+                <p className="text-sm text-stone">
+                  <strong className="text-charcoal">Leadership:</strong> Serge Ngandu & Franck Nyimilongo Pieme — Founders
+                </p>
+              </div>
+              <Link href="/companies/terrakili-sarl" className="inline-flex items-center gap-2 px-8 py-3 bg-forest text-warm-white text-[13px] font-semibold tracking-widest uppercase hover:bg-forest-light transition-colors duration-300">
+                Explore Terrakili →
               </Link>
             </div>
           </div>

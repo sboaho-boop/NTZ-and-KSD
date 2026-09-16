@@ -16,27 +16,27 @@ export default async function NewsSection() {
     articles = [
       {
         id: "1",
+        title: "Terrakili SARL Gains 48,000-Hectare Agricultural Concession in Kasai",
+        slug: "terrakili-agricultural-concession-kasai",
+        category: "Announcements",
+        date: new Date().toISOString(),
+        summary: "Terrakili SARL holds a 48,000-hectare agricultural concession in the Kasai province, awarded by provincial and national decrees and leased for 25 years.",
+      },
+      {
+        id: "2",
+        title: "The Mweka Agri-Project: Commercial Farming for Food Security",
+        slug: "mweka-agri-project-commercial-farming",
+        category: "Industry",
+        date: new Date().toISOString(),
+        summary: "The Mweka Agri-Project combines commercial crop farming with job creation, smallholder training and community development in the Kasai province.",
+      },
+      {
+        id: "3",
         title: "Establishment of NTZ SPRL and KSD SARL",
         slug: "establishment-of-ntz-sprl-and-ksd-sarl",
         category: "Company News",
         date: new Date().toISOString(),
         summary: "NTZ SPRL and KSD SARL (Kasai Sud Diamant) have been established in Kinshasa, DRC, under the leadership of Franck Nyimilongo Pieme.",
-      },
-      {
-        id: "2",
-        title: "KSD SARL — Kasai Sud Diamant Launch",
-        slug: "ksd-sarl-kasai-sud-diamant-launch",
-        category: "Announcements",
-        date: new Date().toISOString(),
-        summary: "KSD SARL launches operations under the Kasai Sud Diamant brand, focusing on natural resources in the DRC.",
-      },
-      {
-        id: "3",
-        title: "Building Business in the Democratic Republic of Congo",
-        slug: "building-business-in-drc",
-        category: "Industry",
-        date: new Date().toISOString(),
-        summary: "Exploring the opportunities and challenges of building sustainable business in the DRC.",
       },
     ];
   }

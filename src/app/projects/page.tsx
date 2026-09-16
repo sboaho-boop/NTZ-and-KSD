@@ -6,7 +6,7 @@ import { projectImage } from "@/lib/images";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Explore selected projects and business activities by NTZ SPRL and KSD SARL.",
+  description: "Explore selected projects and business activities by NTZ SPRL, KSD SARL and Terrakili SARL.",
 };
 
 export default async function ProjectsPage() {
@@ -15,8 +15,9 @@ export default async function ProjectsPage() {
     projects = await db.project.findMany({ orderBy: { createdAt: "desc" } });
   } catch {
     projects = [
-      { id: "1", name: "Mineral Exploration Initiative", slug: "mineral-exploration-initiative", location: "Kasai Region, DRC", sector: "Natural Resources", status: "Planning", description: "A preliminary exploration initiative targeting mineral-rich areas in the Kasai region." },
-      { id: "2", name: "Kinshasa Commercial Hub", slug: "kinshasa-commercial-hub", location: "Kinshasa-Gombe, DRC", sector: "Investment & Development", status: "Planning", description: "A commercial development project in Kinshasa-Gombe aimed at creating modern business infrastructure." },
+      { id: "1", name: "Mweka Agri-Project", slug: "mweka-agri-project", location: "Mweka Territory, Kasai Province, DRC", sector: "Agriculture & Agribusiness", status: "Planning", description: "A commercial crop farming project by Terrakili SARL on about 48,000 hectares in the Kasai province — an initial 1,310-hectare phase growing maize, cassava, soybeans, beans, banana and cereals, with job creation, smallholder training and community development at its core." },
+      { id: "2", name: "Mineral Exploration Initiative", slug: "mineral-exploration-initiative", location: "Kasai Region, DRC", sector: "Natural Resources", status: "Planning", description: "A preliminary exploration initiative targeting mineral-rich areas in the Kasai region." },
+      { id: "3", name: "Kinshasa Commercial Hub", slug: "kinshasa-commercial-hub", location: "Kinshasa-Gombe, DRC", sector: "Investment & Development", status: "Planning", description: "A commercial development project in Kinshasa-Gombe aimed at creating modern business infrastructure." },
     ];
   }
 
