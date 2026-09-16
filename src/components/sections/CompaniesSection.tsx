@@ -17,6 +17,14 @@ const companies = [
     href: "/companies/ksd-sarl",
     image: "/images/diamond.jpg",
   },
+  {
+    label: "TERRAKILI SARL",
+    name: "Agriculture & Agribusiness",
+    description:
+      "Project owner of the Mweka Agri-Project — commercial farming on a 48,000-hectare concession in the Kasai province.",
+    href: "/companies/terrakili-sarl",
+    image: "/images/mweka-site-1.jpg",
+  },
 ];
 
 export default function CompaniesSection() {
@@ -29,12 +37,12 @@ export default function CompaniesSection() {
           </h2>
           <div className="line-separator mx-auto mb-6" />
           <p className="text-stone-dark text-lg max-w-xl mx-auto">
-            Two companies. One commitment to building meaningful business
+            Three companies. One commitment to building meaningful business
             opportunities.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {companies.map((company) => (
             <Link
               key={company.href}
