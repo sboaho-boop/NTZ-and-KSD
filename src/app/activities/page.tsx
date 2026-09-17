@@ -14,6 +14,7 @@ const fallbackActivities = [
   { id: "3", title: "Investment & Development", description: "We pursue investment opportunities that contribute to economic development in the DRC, focusing on sustainable projects with long-term commercial viability.", slug: "investment-development" },
   { id: "4", title: "Strategic Partnerships", description: "We develop partnerships with local and international businesses, institutions and stakeholders to create mutually beneficial commercial opportunities.", slug: "strategic-partnerships" },
   { id: "5", title: "Agriculture & Agribusiness", description: "Through Terrakili SARL, we are developing the Mweka Agri-Project — a commercial crop farming operation in the Kasai province growing maize, cassava, soybeans, beans, banana and cereals. Using modern machinery, drones, GIS and IoT, it combines sustainable production with job creation and training for local farmers.", slug: "agriculture-agribusiness" },
+  { id: "6", title: "Energy & Infrastructure", description: "To power the Mweka Agri-Project and neighbouring communities, the operation plans a mini-hydro power plant of 4–5 MW on the Luekedi River, alongside access roads and river transport on the Kasai waterways.", slug: "energy-infrastructure" },
 ];
 
 export default async function ActivitiesPage() {

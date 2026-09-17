@@ -222,6 +222,29 @@ export default async function TerrakiliPage() {
                 </div>
               </div>
 
+              {/* Processing & Markets */}
+              <div className="mt-16 mb-16">
+                <h3 className="heading-editorial text-2xl text-charcoal mb-4">Processing & Markets</h3>
+                <div className="line-separator mb-8" />
+                <p className="text-stone-dark leading-relaxed mb-8">
+                  Beyond primary production, the project is designed to process and store grain on-site — including a maize-flour
+                  milling facility, a grain-drying unit and silo storage of up to 30,000 tonnes. The concession&apos;s position on the
+                  Ilebo–Lubumbashi railway, linked by river and road to Kinshasa, places production close to the markets it serves.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  {[
+                    { title: "Kasai Province", note: "Provincial demand for maize meal is estimated at 540–840 tonnes per day against large production deficits across maize, cassava and groundnuts." },
+                    { title: "Kinshasa", note: "A market of roughly 17 million people, served via the Kasai and Congo river waterways through Ilebo." },
+                    { title: "Grand Kasai", note: "The wider Kasai region adds some 14 million people, with soybean also serving animal feed and humanitarian food blends." },
+                  ].map((m) => (
+                    <div key={m.title} className="p-6 border border-border">
+                      <h4 className="heading-editorial text-lg text-charcoal mb-2">{m.title}</h4>
+                      <p className="text-stone-dark text-sm leading-relaxed">{m.note}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
               {/* Community */}
               <div className="mt-16 mb-16">
                 <h3 className="heading-editorial text-2xl text-charcoal mb-4">Community & Partnership</h3>
@@ -266,10 +289,96 @@ export default async function TerrakiliPage() {
                 </div>
               </div>
 
+              {/* Site gallery */}
+              <div className="mt-16 mb-16">
+                <h3 className="heading-editorial text-2xl text-charcoal mb-4">From the Site</h3>
+                <div className="line-separator mb-8" />
+                <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
+                  {["mweka-site-3", "mweka-site-4", "mweka-site-5", "mweka-site-6", "mweka-site-7", "mweka-site-8"].map((img) => (
+                    <div key={img} className="relative aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={`/images/${img}.jpg`}
+                        alt="Mweka Agri-Project site"
+                        fill
+                        sizes="(min-width: 1024px) 25vw, 50vw"
+                        className="object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Team & Governance */}
+              <div className="mt-16 mb-16">
+                <h3 className="heading-editorial text-2xl text-charcoal mb-4">Team & Governance</h3>
+                <div className="line-separator mb-8" />
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                  <div className="p-6 border border-border">
+                    <h4 className="heading-editorial text-lg text-charcoal mb-2">Founders</h4>
+                    <p className="text-stone-dark text-sm leading-relaxed">
+                      Serge Ngandu and Franck Nyimilongo Pieme bring decades of combined experience in agriculture, agribusiness
+                      and business management in Southern Africa.
+                    </p>
+                  </div>
+                  <div className="p-6 border border-border">
+                    <h4 className="heading-editorial text-lg text-charcoal mb-2">Management</h4>
+                    <p className="text-stone-dark text-sm leading-relaxed">
+                      Terrakili operates with a professional management structure covering Finance, Operations, Commercial &amp;
+                      Marketing, Human Resources, Logistics, Maintenance, Production, Distribution and Legal affairs.
+                    </p>
+                  </div>
+                  <div className="p-6 border border-border">
+                    <h4 className="heading-editorial text-lg text-charcoal mb-2">Farming Model</h4>
+                    <p className="text-stone-dark text-sm leading-relaxed">
+                      Production runs on a cooperative model in which experienced commercial farmers transfer techniques to a
+                      Congolese farmers&apos; co-operative through hands-on training and skills development.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
               {/* Logistics */}
               <div className="mt-16 mb-16">
                 <h3 className="heading-editorial text-2xl text-charcoal mb-4">Location & Access</h3>
                 <div className="line-separator mb-8" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src="/images/mweka-bloc-1.jpg"
+                      alt="Ndambo Bloc 1 — demarcation map"
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src="/images/mweka-bloc-2.jpg"
+                      alt="Ndambo Bloc 2 — demarcation map"
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src="/images/mweka-inema-map.jpg"
+                      alt="Inema blocks A and B — demarcation map"
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src="/images/mweka-bloc-b-satellite.jpg"
+                      alt="Satellite view of the concession area"
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   {logistics.map((item) => (
                     <div key={item.route} className="p-6 border border-border">

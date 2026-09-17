@@ -91,6 +91,30 @@ const FALLBACK_ARTICLES: Article[] = [
     summary:
       "Exploring the opportunities and challenges of building sustainable business in the DRC.",
   },
+  {
+    id: "7",
+    title: "Mweka Agri-Project Plans 4–5 MW Mini-Hydro Plant on the Luekedi River",
+    slug: "mweka-agri-project-mini-hydro-luekedi-river",
+    category: "Energy",
+    date: new Date(),
+    image: "/images/construction.jpg",
+    content:
+      "The Mweka Agri-Project plans to secure its own power supply with a mini-hydroelectric plant of 4–5 MW on the Luekedi River, sourced near the project's focus area at Ndambo.\n\nThe plant would power farming operations — including irrigation, processing and grain drying — and bring electricity to surrounding communities.\n\nIt sits within the operation's broader infrastructure programme alongside access roads, the Ilebo–Lubumbashi railway link, and river transport on the Kasai waterways running from Ilebo to Kinshasa.",
+    summary:
+      "The Mweka Agri-Project plans a 4–5 MW mini-hydro plant on the Luekedi River to power its operations and neighbouring communities.",
+  },
+  {
+    id: "8",
+    title: "How the Mweka Agri-Project Connects to Its Markets",
+    slug: "mweka-agri-project-logistics-rail-river-road",
+    category: "Industry",
+    date: new Date(),
+    image: "/images/mweka-site-1.jpg",
+    content:
+      "The Mweka Agri-Project is positioned within a transport network built around the Ilebo–Lubumbashi railway, the Kasai River and key roads.\n\nLocated about 25 km from the town of Mweka, the concession sits on the railway that links the region to Lubumbashi in the south-east and to Ilebo to the west, where the Kasai River joins the Congo River for the onward journey to Kinshasa.\n\nRoad outlets include Mweka–Bena Makima (about 80 km, the recommended route), Mweka–Ilebo (about 150 km) and Mweka–Luebo (about 75 km). On-site, the operation plans grain silo storage of up to 30,000 tonnes and a maize-flour milling facility, allowing production to move efficiently to the markets of Kinshasa and the wider Kasai.",
+    summary:
+      "The Mweka Agri-Project links to market through the Ilebo–Lubumbashi railway, the Kasai River and key road outlets, supported by on-site storage and milling capacity.",
+  },
 ];
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

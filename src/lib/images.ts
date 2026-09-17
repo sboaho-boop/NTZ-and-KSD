@@ -30,6 +30,8 @@ const NEWS_IMAGES: Record<string, string> = {
   "terrakili-agricultural-concession-kasai": "/images/mweka-field.jpg",
   "mweka-agri-project-commercial-farming": "/images/mweka-site-2.jpg",
   "terrakili-smallholder-farmer-training-kasai": "/images/mweka-field.jpg",
+  "mweka-agri-project-mini-hydro-luekedi-river": "/images/construction.jpg",
+  "mweka-agri-project-logistics-rail-river-road": "/images/mweka-site-1.jpg",
 };
 
 export function projectImage(project?: ProjectLike | null): string {
@@ -69,6 +71,9 @@ export function activityImage(activity?: ActivityLike | null): string {
   }
   if (slug.includes("agriculture") || slug.includes("agri") || title.includes("agriculture") || title.includes("agribusiness")) {
     return "/images/mweka-site-1.jpg";
+  }
+  if (slug.includes("energy") || slug.includes("hydro") || title.includes("energy") || title.includes("infrastructure")) {
+    return "/images/construction.jpg";
   }
   if (slug.includes("trading") || title.includes("trading") || title.includes("commerce")) {
     return "/images/business-strategy.jpg";

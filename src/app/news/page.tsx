@@ -43,6 +43,14 @@ export default async function NewsPage() {
         id: "6", title: "Building Business in the Democratic Republic of Congo", slug: "building-business-in-drc",
         category: "Industry", date: new Date().toISOString(), summary: "Exploring the opportunities and challenges of building sustainable business in the DRC.",
       },
+      {
+        id: "7", title: "Mweka Agri-Project Plans 4–5 MW Mini-Hydro Plant on the Luekedi River", slug: "mweka-agri-project-mini-hydro-luekedi-river",
+        category: "Energy", date: new Date().toISOString(), summary: "The Mweka Agri-Project plans a 4–5 MW mini-hydro plant on the Luekedi River to power its operations and neighbouring communities.",
+      },
+      {
+        id: "8", title: "How the Mweka Agri-Project Connects to Its Markets", slug: "mweka-agri-project-logistics-rail-river-road",
+        category: "Industry", date: new Date().toISOString(), summary: "The Mweka Agri-Project links to market through the Ilebo–Lubumbashi railway, the Kasai River and key road outlets, supported by on-site storage and milling capacity.",
+      },
     ];
   }
 

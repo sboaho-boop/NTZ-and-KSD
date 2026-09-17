@@ -120,6 +120,15 @@ async function main() {
       order: 5,
       companyId: terrakili.id,
     },
+    {
+      title: "Energy & Infrastructure",
+      slug: "energy-infrastructure",
+      description:
+        "To power the Mweka Agri-Project and neighbouring communities, the operation plans a mini-hydro power plant of 4–5 MW on the Luekedi River, alongside access roads and river transport on the Kasai waterways.",
+      image: "/images/construction.jpg",
+      order: 6,
+      companyId: terrakili.id,
+    },
   ];
 
   for (const activity of activities) {
@@ -303,8 +312,40 @@ async function main() {
       category: "Community",
       content:
         "The Mweka Agri-Project is building on a foundation of local agricultural knowledge to develop modern farming capacity in the Kasai province.\n\nTerrakili works with INERA — the National Institute for Agronomic Study & Research — which has run a research and extension station at Bena-Longo, just 14–20 km from the project's focus area near Ndambo, since the colonial era. Alongside INERA, CAPSA produces and distributes improved seeds and coaches farmers in better cultivation techniques.\n\nThe model is cooperative: experienced commercial farmers transfer modern methods and soil management skills to local producers, while surrounding technical schools (ITV for veterinary sciences and ITA for agricultural sciences) provide a growing skills base the project intends to support.\n\nThe project's goals include creating more than 150 permanent jobs and 500+ casual roles, guaranteeing smallholder farmers a reliable market for their produce, and contributing to community infrastructure such as a school, health facilities and access to water and electricity.",
+summary:
+      "The Mweka Agri-Project partners with INERA and CAPSA to train smallholder farmers and build modern agricultural capacity in the Kasai province.",
+      published: true,
+      companyId: terrakili.id,
+    },
+  });
+
+  await prisma.news.upsert({
+    where: { slug: "mweka-agri-project-mini-hydro-luekedi-river" },
+    update: { image: "/images/construction.jpg" },
+    create: {
+      title: "Mweka Agri-Project Plans 4–5 MW Mini-Hydro Plant on the Luekedi River",
+      slug: "mweka-agri-project-mini-hydro-luekedi-river",
+      category: "Energy",
+      content:
+        "The Mweka Agri-Project plans to secure its own power supply with a mini-hydroelectric plant of 4–5 MW on the Luekedi River, sourced near the project's focus area at Ndambo.\n\nThe plant would power farming operations — including irrigation, processing and grain drying — and bring electricity to surrounding communities.\n\nIt sits within the operation's broader infrastructure programme alongside access roads, the Ilebo–Lubumbashi railway link, and river transport on the Kasai waterways running from Ilebo to Kinshasa.",
       summary:
-        "The Mweka Agri-Project partners with INERA and CAPSA to train smallholder farmers and build modern agricultural capacity in the Kasai province.",
+        "The Mweka Agri-Project plans a 4–5 MW mini-hydro plant on the Luekedi River to power its operations and neighbouring communities.",
+      published: true,
+      companyId: terrakili.id,
+    },
+  });
+
+  await prisma.news.upsert({
+    where: { slug: "mweka-agri-project-logistics-rail-river-road" },
+    update: { image: "/images/mweka-site-1.jpg" },
+    create: {
+      title: "How the Mweka Agri-Project Connects to Its Markets",
+      slug: "mweka-agri-project-logistics-rail-river-road",
+      category: "Industry",
+      content:
+        "The Mweka Agri-Project is positioned within a transport network built around the Ilebo–Lubumbashi railway, the Kasai River and key roads.\n\nLocated about 25 km from the town of Mweka, the concession sits on the railway that links the region to Lubumbashi in the south-east and to Ilebo to the west, where the Kasai River joins the Congo River for the onward journey to Kinshasa.\n\nRoad outlets include Mweka–Bena Makima (about 80 km, the recommended route), Mweka–Ilebo (about 150 km) and Mweka–Luebo (about 75 km). On-site, the operation plans grain silo storage of up to 30,000 tonnes and a maize-flour milling facility, allowing production to move efficiently to the markets of Kinshasa and the wider Kasai.",
+      summary:
+        "The Mweka Agri-Project links to market through the Ilebo–Lubumbashi railway, the Kasai River and key road outlets, supported by on-site storage and milling capacity.",
       published: true,
       companyId: terrakili.id,
     },
