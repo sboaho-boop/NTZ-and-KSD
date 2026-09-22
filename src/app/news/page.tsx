@@ -20,6 +20,10 @@ export default async function NewsPage() {
   } catch {
     articles = [
       {
+        id: "9", title: "KSD SARL Develops Diamond Investment Project in Tshikapa", slug: "ksd-diamond-project-tshikapa",
+        category: "Announcements", date: new Date().toISOString(), summary: "KSD SARL is developing a diamond investment project in Tshikapa, Kasai province, with a 2007 resource statement of 16.5 million carats and Kimberley Process-certified exports.",
+      },
+      {
         id: "1", title: "Terrakili SARL Gains 48,000-Hectare Agricultural Concession in Kasai", slug: "terrakili-agricultural-concession-kasai",
         category: "Announcements", date: new Date().toISOString(), summary: "Terrakili SARL holds a 48,000-hectare agricultural concession in the Kasai province, awarded by provincial and national decrees and leased for 25 years.",
       },

@@ -20,6 +20,18 @@ type Article = {
 
 const FALLBACK_ARTICLES: Article[] = [
   {
+    id: "9",
+    title: "KSD SARL Develops Diamond Investment Project in Tshikapa",
+    slug: "ksd-diamond-project-tshikapa",
+    category: "Announcements",
+    date: new Date(),
+    image: "/images/ksd-diamonds-cover.png",
+    content:
+      "KSD SARL (Kasai Sud Diamant) is developing its diamond investment project in the Tshikapa area of the Kasai province, Democratic Republic of Congo.\n\nA diamond resource statement dated 30 September 2007 estimates a grand total of 16,495,739 carats across the Kasai concessions and the Tshikapa concession 570, with further exploration targets at Longitshimo and Lumbembe.\n\nProduction is fully documented and certified. Cumulative production for 2010–2011 reached 49,637.51 carats — 32,680.45 carats of gem-quality and 16,957.06 carats of industrial diamonds — with parcels certified by the CEEC and exported under the Kimberley Process Certification Scheme.\n\nThe project operates with full traceability of documentation, a strong commitment to ethical sourcing and environmental management, and security managed with private and government police. KSD SARL welcomes business transactions and partnership enquiries.",
+    summary:
+      "KSD SARL is developing a diamond investment project in Tshikapa, Kasai province, with a 2007 resource statement of 16.5 million carats and Kimberley Process-certified exports.",
+  },
+  {
     id: "1",
     title: "Terrakili SARL Gains 48,000-Hectare Agricultural Concession in Kasai",
     slug: "terrakili-agricultural-concession-kasai",

@@ -21,6 +21,7 @@ const PROJECT_IMAGES: Record<string, string> = {
   "mineral-exploration-initiative": "/images/industry.jpg",
   "kinshasa-commercial-hub": "/images/cranes.jpg",
   "mweka-agri-project": "/images/mweka-site-1.jpg",
+  "ksd-diamond-project": "/images/ksd-diamonds-cover.png",
 };
 
 const NEWS_IMAGES: Record<string, string> = {
@@ -32,6 +33,7 @@ const NEWS_IMAGES: Record<string, string> = {
   "terrakili-smallholder-farmer-training-kasai": "/images/mweka-field.jpg",
   "mweka-agri-project-mini-hydro-luekedi-river": "/images/construction.jpg",
   "mweka-agri-project-logistics-rail-river-road": "/images/mweka-site-1.jpg",
+  "ksd-diamond-project-tshikapa": "/images/ksd-diamonds-cover.png",
 };
 
 export function projectImage(project?: ProjectLike | null): string {

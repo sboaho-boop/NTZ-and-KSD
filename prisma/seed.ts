@@ -223,6 +223,34 @@ async function main() {
     },
   });
 
+  await prisma.project.upsert({
+    where: { slug: "ksd-diamond-project" },
+    update: { image: "/images/ksd-diamonds-cover.png" },
+    create: {
+      name: "KSD Diamond Project",
+      slug: "ksd-diamond-project",
+      location: "Tshikapa, Kasai Province, DRC",
+      sector: "Mining & Natural Resources",
+      status: "Active",
+      description:
+        "The KSD Diamond Project is the diamond investment project of KSD SARL (Kasai Sud Diamant) in the Tshikapa area of the Kasai province, Democratic Republic of Congo. A diamond resource statement dated 30 September 2007 estimates a grand total of 16,495,739 carats across the Kasai concessions (2369, 571, 641, 569 and 2306) and the Tshikapa concession 570, with further exploration targets at Longitshimo (670/671) and Lumbembe (574/575/614).\n\nProduction is certified and documented. In October 2010, parcel KSD/005/10 of 13,802.59 carats was certified by the CEEC (Centre d'Expertise, d'Évaluation et de Certification) at a value of $1,253,049. Cumulative production for 2010–2011 reached 49,637.51 carats — 32,680.45 carats of gem-quality and 16,957.06 carats of industrial diamonds.\n\nThe project operates under the Kimberley Process Certification Scheme, with full traceability of documentation from extraction to export — including certificate CD 010394 covering the export of 28 parcels to Venkatesh Diamond Pvt Ltd in Surat, India, in October 2010. Ethical sourcing, environmental management and community concerns are integral to how the operation is run.\n\nExtraction at the reserve itself requires no costly means, and the revenue generated funds costlier mining methods on the group's other concessions. Security is managed day to day with private and government police (at a cost of about $250 per person per month), alongside significant logistical challenges in the region. KSD SARL is open to business transactions and partnership.",
+      image: "/images/ksd-diamonds-cover.png",
+      gallery: JSON.stringify([
+        "/images/ksd-diamonds-cover.png",
+        "/images/ksd-diamonds-tray.jpg",
+        "/images/ksd-diamond-parcels.jpg",
+        "/images/ksd-diamond-parcel.jpg",
+        "/images/ksd-resource-statement.jpg",
+        "/images/ksd-production-stats.jpg",
+        "/images/ksd-ceec-certificate.jpg",
+        "/images/ksd-kimberley-certificate.jpg",
+        "/images/ksd-concession-map.jpg",
+      ]),
+      companyId: ksd.id,
+      featured: true,
+    },
+  });
+
   // Create placeholder news
   await prisma.news.upsert({
     where: { slug: "establishment-of-ntz-sprl-and-ksd-sarl" },
@@ -348,6 +376,22 @@ summary:
         "The Mweka Agri-Project links to market through the Ilebo–Lubumbashi railway, the Kasai River and key road outlets, supported by on-site storage and milling capacity.",
       published: true,
       companyId: terrakili.id,
+    },
+  });
+
+  await prisma.news.upsert({
+    where: { slug: "ksd-diamond-project-tshikapa" },
+    update: { image: "/images/ksd-diamonds-cover.png" },
+    create: {
+      title: "KSD SARL Develops Diamond Investment Project in Tshikapa",
+      slug: "ksd-diamond-project-tshikapa",
+      category: "Announcements",
+      content:
+        "KSD SARL (Kasai Sud Diamant) is developing its diamond investment project in the Tshikapa area of the Kasai province, Democratic Republic of Congo.\n\nA diamond resource statement dated 30 September 2007 estimates a grand total of 16,495,739 carats across the Kasai concessions and the Tshikapa concession 570, with further exploration targets at Longitshimo and Lumbembe.\n\nProduction is fully documented and certified. Cumulative production for 2010–2011 reached 49,637.51 carats — 32,680.45 carats of gem-quality and 16,957.06 carats of industrial diamonds — with parcels certified by the CEEC and exported under the Kimberley Process Certification Scheme.\n\nThe project operates with full traceability of documentation, a strong commitment to ethical sourcing and environmental management, and security managed with private and government police. KSD SARL welcomes business transactions and partnership enquiries.",
+      summary:
+        "KSD SARL is developing a diamond investment project in Tshikapa, Kasai province, with a 2007 resource statement of 16.5 million carats and Kimberley Process-certified exports.",
+      published: true,
+      companyId: ksd.id,
     },
   });
 

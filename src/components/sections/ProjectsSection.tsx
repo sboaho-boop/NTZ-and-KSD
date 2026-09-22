@@ -13,6 +13,16 @@ export default async function ProjectsSection() {
   } catch {
     projects = [
       {
+        id: "4",
+        name: "KSD Diamond Project",
+        slug: "ksd-diamond-project",
+        location: "Tshikapa, Kasai Province, DRC",
+        sector: "Mining & Natural Resources",
+        status: "Active",
+        image: "/images/ksd-diamonds-cover.png",
+        description: "The diamond investment project of KSD SARL (Kasai Sud Diamant) in the Tshikapa area of the Kasai province — a 2007 resource statement estimates 16,495,739 carats, with certified production of 49,637.51 carats in 2010–2011 and Kimberley Process-certified exports.",
+      },
+      {
         id: "1",
         name: "Mweka Agri-Project",
         slug: "mweka-agri-project",
