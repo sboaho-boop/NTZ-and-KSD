@@ -49,7 +49,7 @@ export default function Header() {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden xl:flex items-center gap-7">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
@@ -70,7 +70,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileOpen(true)}
-              className="lg:hidden p-2 text-charcoal"
+              className="xl:hidden p-2 text-charcoal"
               aria-label="Open menu"
             >
               <Menu size={24} strokeWidth={1.5} />

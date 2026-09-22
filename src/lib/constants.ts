@@ -7,6 +7,7 @@ export const NAV_ITEMS = [
   { label: "Our Companies", href: "/companies" },
   { label: "Activities", href: "/activities" },
   { label: "Projects", href: "/projects" },
+  { label: "Opportunities", href: "/opportunities" },
   { label: "Leadership", href: "/leadership" },
   { label: "News", href: "/news" },
   { label: "Contact", href: "/contact" },
